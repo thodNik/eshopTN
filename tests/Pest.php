@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Admin;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -42,7 +43,9 @@ expect()->extend('toBeOne', function () {
 |
 */
 
-function something()
+function adminLogin($admin = null)
 {
-    // ..
+    $admin = $admin ?? Admin::factory()->create();
+
+    return test()->actingAs($admin, 'admin-api');
 }
