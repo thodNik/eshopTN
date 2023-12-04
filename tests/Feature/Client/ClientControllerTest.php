@@ -33,6 +33,9 @@ it('can store a client', function () {
         'name' => fake()->name,
         'email' => $email,
         'password' => fake()->password,
+        'address' => fake()->address(),
+        'phone' => fake()->regexify('[0-9]{10}'),
+        'zipcode' => fake()->regexify('[0-4]{5}')
     ])->assertStatus(201);
 
     expect($response->json('data'))
@@ -45,6 +48,9 @@ it('can update a client', function () {
         'email' => 'changed@example.com',
         'name' => fake()->name,
         'password' => fake()->password,
+        'address' => fake()->address(),
+        'phone' => fake()->regexify('[0-9]{10}'),
+        'zipcode' => fake()->regexify('[0-4]{5}')
     ])->assertStatus(201);
 
     expect($response->json('data'))

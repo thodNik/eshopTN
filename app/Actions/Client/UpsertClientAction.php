@@ -9,7 +9,6 @@ class UpsertClientAction
 {
     public static function execute(ClientData $clientData): Client
     {
-
         return Client::updateOrCreate([
             'id' => $clientData->id,
         ],

@@ -21,6 +21,10 @@ class Client extends Authenticatable
         'name',
         'email',
         'password',
+        'address',
+        'phone',
+        'zipcode',
+        'fcm_token'
     ];
 
     /**

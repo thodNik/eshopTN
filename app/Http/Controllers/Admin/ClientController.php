@@ -52,7 +52,7 @@ class ClientController extends Controller
         $client->delete();
 
         return response()->json([
-            'message' => 'Διαγράφηκε με επιτυχία',
+            'message' => 'Client deleted successfully.',
         ]);
     }
 }

@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+            $table->foreignIdFor(\App\Models\ProductCategory::class)->nullable();
+            $table->string('title');
+            $table->string('slug')->unique();
+            $table->string('image');
+            $table->string('description');
+            $table->float('price');
+            $table->enum('status', \App\Enums\StatusProduct::lowercaseOptions());
             $table->timestamps();
         });
     }
