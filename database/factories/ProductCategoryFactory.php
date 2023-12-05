@@ -18,7 +18,6 @@ class ProductCategoryFactory extends Factory
     {
         return [
             'title' => fake()->sentence(),
-            'slug' => fake()->word(),
             'description' => fake()->sentence()
         ];
     }

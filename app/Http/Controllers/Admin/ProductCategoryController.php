@@ -38,7 +38,7 @@ class ProductCategoryController extends Controller
     {
         $productCategory = UpsertProductCategoryAction::execute($productCategoryData);
 
-        return ProductCategoryResource::make($productCategory->load('product'));
+        return ProductCategoryResource::make($productCategory);
     }
 
     /**

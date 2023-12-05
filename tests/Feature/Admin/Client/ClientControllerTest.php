@@ -7,7 +7,6 @@ uses()->group('clients', 'admin');
 beforeEach(function () {
     adminLogin();
     $this->client = Client::factory()->create();
-
 });
 
 it('can view all clients', function () {
@@ -28,7 +27,8 @@ it('can view a client', function () {
 
 it('can store a client', function () {
 
-    $email = 'thanos@gmail.com';
+    $email = 'thodoris@gmail.com';
+
     $response = $this->post(route('admin.clients.store'), [
         'name' => fake()->name,
         'email' => $email,

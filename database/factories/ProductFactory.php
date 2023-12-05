@@ -19,10 +19,9 @@ class ProductFactory extends Factory
     {
         return [
             'product_category_id' => ProductCategory::factory()->create(),
-            'slug' => fake()->word(),
-            'title' => fake()->word(),
+            'title' => fake()->sentence(),
             'image' =>  fake()->imageUrl(),
-            'description' => fake()->text(),
+            'description' => fake()->sentence(),
             'price' => fake()->numberBetween('10', '1000'),
         ];
     }

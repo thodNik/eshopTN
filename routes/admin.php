@@ -13,7 +13,7 @@ Route::middleware(['json'])->group(function () {
         Route::post('me', 'me')->name('admin.me');
     });
 
-    Route::middleware(['admin-api'])->group(function () {
+    Route::middleware(['auth:admin-api'])->group(function () {
         Route::apiResource('clients', ClientController::class)->names('admin.clients');
         Route::apiResource('products', ProductController::class)->names('admin.products');
         Route::apiResource('product-categories', ProductCategoryController::class)->names('admin.product-categories');
