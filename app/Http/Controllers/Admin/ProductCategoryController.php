@@ -22,7 +22,7 @@ class ProductCategoryController extends Controller
     public function index(): AnonymousResourceCollection
     {
         return ProductCategoryResource::collection(
-            QueryBuilder::for(Product::class)
+            QueryBuilder::for(ProductCategory::class)
                 ->allowedFilters([AllowedFilter::custom('search', new SearchFilter(app(ProductCategory::class)))])
                 ->allowedSorts(['created_at'])
                 ->defaultSort('created_at')
@@ -44,9 +44,9 @@ class ProductCategoryController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(ProductCategoryData $productCategoryData): ProductCategoryResource
+    public function show(ProductCategory $productCategory): ProductCategoryResource
     {
-        return ProductCategoryResource::make($productCategoryData);
+        return ProductCategoryResource::make($productCategory);
     }
 
 

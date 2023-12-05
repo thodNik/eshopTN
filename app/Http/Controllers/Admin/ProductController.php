@@ -34,11 +34,14 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(ProductData $productData): ProductResource
+    public function store(ProductData $productData): JsonResponse
     {
        $product = UpsertProductAction::execute($productData);
 
-        return ProductResource::make($product->load('productCategory'));
+        return response()->json([
+            'message' => 'Product created successfully.',
+            'product' => ProductResource::make($product->load('productCategory'))
+        ]);
     }
 
     /**
@@ -49,15 +52,17 @@ class ProductController extends Controller
         return ProductResource::make($product);
     }
 
-
     /**
      * Update the specified resource in storage.
      */
-    public function update(ProductData $productData): ProductResource
+    public function update(ProductData $productData): JsonResponse
     {
         $product = UpsertProductAction::execute($productData);
 
-        return ProductResource::make($product->load('productCategory'));
+        return response()->json([
+            'message' => 'Product updated successfully.',
+            'product' => ProductResource::make($product->load('productCategory'))
+        ]);
     }
 
     /**
