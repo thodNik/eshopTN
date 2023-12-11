@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Enums\StatusProduct;
 use App\Models\ProductCategory;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -23,6 +24,7 @@ class ProductFactory extends Factory
             'image' =>  fake()->imageUrl(),
             'description' => fake()->sentence(),
             'price' => fake()->numberBetween('10', '1000'),
+            'status' => fake()->randomElement(StatusProduct::lowercaseOptions())
         ];
     }
 }

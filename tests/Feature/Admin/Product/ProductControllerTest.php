@@ -34,6 +34,7 @@ it('can store a product', function () {
         'image' =>  $this->product->image,
         'description' => $this->product->description,
         'price' => $this->product->price,
+        'status' => $this->product->status->value
     ])->assertStatus(200);
 
     expect($response->json('product'))
@@ -41,7 +42,8 @@ it('can store a product', function () {
         ->title->toBe($this->product->title)
         ->image->toBe($this->product->image)
         ->description->toBe($this->product->description)
-        ->price->toBe($this->product->price);
+        ->price->toBe($this->product->price)
+        ->status->toBe($this->product->status->value);
 });
 
 it('can update a product', function () {
@@ -54,6 +56,7 @@ it('can update a product', function () {
         'image' =>  $product->image,
         'description' => $product->description,
         'price' => $product->price,
+        'status' => $product->status->value
     ])->assertStatus(200);
 
     expect($response->json('product'))
@@ -61,7 +64,8 @@ it('can update a product', function () {
         ->title->toBe($product->title)
         ->image->toBe($product->image)
         ->description->toBe($product->description)
-        ->price->toBe($product->price);
+        ->price->toBe($product->price)
+        ->status->toBe($product->status->value);
 });
 
 it('can delete a product', function () {

@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Enums\StatusOrder;
+use App\Models\Client;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +19,10 @@ class OrderFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'client_id' => Client::factory()->create(),
+            'total_price' => fake()->numberBetween('10', '1000'),
+            'quantity' => fake()->numberBetween('10', '80'),
+            'status' => fake()->randomElement(StatusOrder::lowercaseOptions())
         ];
     }
 }
